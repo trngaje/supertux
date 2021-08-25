@@ -1,3 +1,20 @@
+Porting of SuperTux 0.1.3 to Miyoo (Bittboy / PocketGo / PowKiddy V90/Q90)
+
+Controls (PocketGo):
+- D-Pad: Move
+- B: Jump/Confirm
+- Y: Run/Action
+- Select: Menu
+
+Building from source:
+  make MIYOO=1
+
+If you have not received a copy of the source code and license agreement with this binary release,
+you can visit https://github.com/andrigamerita/supertux
+
+
+--- --- ---
+
 
 - An introduction for SuperTux -
 http://super-tux.sf.net/

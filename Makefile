@@ -1,30 +1,31 @@
-
-# Type 'make GCW0=1' to build for GCW-Zero
-
-#GCW0 = 1
+# Type 'make MIYOO=1' to build for Miyoo
 
 APP_NAME = supertux
 
-# compiler
-
-ifdef GCW0
-    CC = mipsel-linux-g++
+ifdef MIYOO
+    CHAINPREFIX:=/opt/miyoo
+	CROSS_COMPILE:=$(CHAINPREFIX)/usr/bin/arm-linux-
+	AR := $(CROSS_COMPILE)ar
+	CC := $(CROSS_COMPILE)g++
+	CXX := $(CROSS_COMPILE)g++
+	STRIP := $(CROSS_COMPILE)strip
+	RANLIB := $(CROSS_COMPILE)ranlib
+	SYSROOT	= $(shell $(CC) --print-sysroot)
+	export CHAINPREFIX CROSS_COMPILE AR CC CXX STRIP RANLIB SYSROOT
 else
     CC = g++
 endif 
 
 CXXDEFS = -DGP2X -DRES320X240 -DNOOPENGL -DHAVE_SOUND
-
 CXXFLAGS = $(CXXDEFS) -Wall -O2 -std=gnu++03 `sdl-config --cflags`
 CXXLIBS = -s -lz -lSDL -lSDL_mixer -lSDL_gfx -lSDL_image
 
-ifdef GCW0
-    CXXFLAGS += -mips32
+ifdef MIYOO
+    CXXFLAGS += -march=armv5tej
 endif
 
-# source files
-
-OBJ =	src/badguy.o \
+OBJ = \
+	src/badguy.o \
 	src/bitmask.o \
 	src/button.o \
 	src/collision.o \

@@ -47,7 +47,7 @@ PlayerKeymap::PlayerKeymap()
   keymap.duck  = SDLK_DOWN;
   keymap.left  = SDLK_LEFT;
   keymap.right = SDLK_RIGHT;
-  keymap.fire  = SDLK_LALT;
+  keymap.fire  = SDLK_SPACE; //SDLK_LALT;
 }
 
 void player_input_init(player_input_type* pplayer_input)

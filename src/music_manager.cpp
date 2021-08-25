@@ -36,15 +36,18 @@ MusicManager::~MusicManager()
 MusicRef
 MusicManager::load_music(const std::string& file)
 {
+  return NULL; // music loading fails on miyoo so we disable it for now
+
   if(!audio_device)
     return MusicRef(0);
 
-  if(!exists_music(file))
+  if(!exists_music(file)) {}
     st_abort("Couldn't load musicfile ", file.c_str());
 
   std::map<std::string, MusicResource>::iterator i = musics.find(file);
   assert(i != musics.end());
   return MusicRef(& (i->second));
+
 }
 
 bool
