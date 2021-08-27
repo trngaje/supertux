@@ -32,26 +32,26 @@ bool use_music = true;    /* handle music on/off menu and command-line option */
 bool audio_device = true; /* != 0: available and initialized */
 
 const char * soundfilenames[NUM_SOUNDS] = {
-                                       "/sounds/jump.wav",
-                                       "/sounds/bigjump.wav",
-                                       "/sounds/skid.wav",
-                                       "/sounds/distro.wav",
-                                       "/sounds/herring.wav",
-                                       "/sounds/brick.wav",
-                                       "/sounds/hurt.wav",
-                                       "/sounds/squish.wav",
-                                       "/sounds/fall.wav",
-                                       "/sounds/ricochet.wav",
-                                       "/sounds/bump-upgrade.wav",
-                                       "/sounds/upgrade.wav",
-                                       "/sounds/excellent.wav",
-                                       "/sounds/coffee.wav",
-                                       "/sounds/shoot.wav",
-                                       "/sounds/lifeup.wav",
-                                       "/sounds/stomp.wav",
-                                       "/sounds/kick.wav",
-                                       "/sounds/explode.wav",
-                                       "/sounds/warp.wav"
+                                       "/sounds/jump.ogg",
+                                       "/sounds/bigjump.ogg",
+                                       "/sounds/skid.ogg",
+                                       "/sounds/distro.ogg",
+                                       "/sounds/herring.ogg",
+                                       "/sounds/brick.ogg",
+                                       "/sounds/hurt.ogg",
+                                       "/sounds/squish.ogg",
+                                       "/sounds/fall.ogg",
+                                       "/sounds/ricochet.ogg",
+                                       "/sounds/bump-upgrade.ogg",
+                                       "/sounds/upgrade.ogg",
+                                       "/sounds/excellent.ogg",
+                                       "/sounds/coffee.ogg",
+                                       "/sounds/shoot.ogg",
+                                       "/sounds/lifeup.ogg",
+                                       "/sounds/stomp.ogg",
+                                       "/sounds/kick.ogg",
+                                       "/sounds/explode.ogg",
+                                       "/sounds/warp.ogg"
                                     };
 
 
