@@ -36,7 +36,12 @@
 void draw_intro()
 {
 if(debug_mode)
+#ifdef MIYOOMINI
+  fade("/images/background/arctis2.png", 30, false);
+display_text_file("intro.txt", "/images/background/arctis2.png", SCROLL_SPEED_MESSAGE);
+#else	
   fade("/images/background/arctis2.jpg", 30, false);
 display_text_file("intro.txt", "/images/background/arctis2.jpg", SCROLL_SPEED_MESSAGE);
+#endif
 }
 

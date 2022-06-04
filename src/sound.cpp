@@ -31,6 +31,30 @@ bool use_sound = true;    /* handle sound on/off menu and command-line option */
 bool use_music = true;    /* handle music on/off menu and command-line option */
 bool audio_device = true; /* != 0: available and initialized */
 
+#ifdef MIYOOMINI
+const char * soundfilenames[NUM_SOUNDS] = {
+                                       "/sounds/jump.wav",
+                                       "/sounds/bigjump.wav",
+                                       "/sounds/skid.wav",
+                                       "/sounds/distro.wav",
+                                       "/sounds/herring.wav",
+                                       "/sounds/brick.wav",
+                                       "/sounds/hurt.wav",
+                                       "/sounds/squish.wav",
+                                       "/sounds/fall.wav",
+                                       "/sounds/ricochet.wav",
+                                       "/sounds/bump-upgrade.wav",
+                                       "/sounds/upgrade.wav",
+                                       "/sounds/excellent.wav",
+                                       "/sounds/coffee.wav",
+                                       "/sounds/shoot.wav",
+                                       "/sounds/lifeup.wav",
+                                       "/sounds/stomp.wav",
+                                       "/sounds/kick.wav",
+                                       "/sounds/explode.wav",
+                                       "/sounds/warp.wav"
+                                    };
+#else
 const char * soundfilenames[NUM_SOUNDS] = {
                                        "/sounds/jump.ogg",
                                        "/sounds/bigjump.ogg",
@@ -53,7 +77,7 @@ const char * soundfilenames[NUM_SOUNDS] = {
                                        "/sounds/explode.ogg",
                                        "/sounds/warp.ogg"
                                     };
-
+#endif
 
 #include <SDL_mixer.h>
 

@@ -201,8 +201,13 @@ void loadshared()
 #endif
 
   /* Herring song */
+#ifdef MIYOOMINI
+  herring_song = music_manager->load_music(datadir + "/music/salcon.wav");
+  level_end_song = music_manager->load_music(datadir + "/music/leveldone.wav");
+#else
   herring_song = music_manager->load_music(datadir + "/music/salcon.mod");
   level_end_song = music_manager->load_music(datadir + "/music/leveldone.mod");
+#endif
 #endif
 }
 

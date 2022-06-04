@@ -254,7 +254,11 @@ void title(void)
   updatescreen();
 
   /* Load images: */
+#ifdef MIYOOMINI
+  bkg_title = new Surface(datadir + "/images/title/background.png", IGNORE_ALPHA);
+#else
   bkg_title = new Surface(datadir + "/images/title/background.jpg", IGNORE_ALPHA);
+#endif
   logo = new Surface(datadir + "/images/title/logo.png", USE_ALPHA);
   img_choose_subset = new Surface(datadir + "/images/status/choose-level-subset.png", USE_ALPHA);
 
@@ -366,7 +370,10 @@ void title(void)
                 case MNID_CREDITS:
 #ifndef NOSOUND
                   music_manager = new MusicManager();
-#ifdef GP2X
+
+#if defined(MIYOOMINI)
+                  menu_song  = music_manager->load_music(datadir + "/music/credits.wav");
+#elif defined(GP2X)
                   menu_song  = music_manager->load_music(datadir + "/music/credits.xm");
 #else
                   menu_song  = music_manager->load_music(datadir + "/music/credits.ogg");
@@ -377,7 +384,11 @@ void title(void)
                   display_text_file("CREDITS", bkg_title, SCROLL_SPEED_CREDITS);
 #ifndef NOSOUND
                   music_manager->halt_music();
+#ifdef MIYOOMINI
+                  menu_song = music_manager->load_music(datadir + "/music/theme.wav");
+#else
                   menu_song = music_manager->load_music(datadir + "/music/theme.mod");
+#endif
                   music_manager->play_music(menu_song);
 #endif
                   Menu::set_current(main_menu);

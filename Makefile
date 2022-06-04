@@ -2,7 +2,7 @@
 
 APP_NAME = supertux
 
-ifdef MIYOO
+ifeq ($(platform), miyoo)
     CHAINPREFIX:=/opt/miyoo
 	CROSS_COMPILE:=$(CHAINPREFIX)/usr/bin/arm-linux-
 	AR := $(CROSS_COMPILE)ar
@@ -12,11 +12,24 @@ ifdef MIYOO
 	RANLIB := $(CROSS_COMPILE)ranlib
 	SYSROOT	= $(shell $(CC) --print-sysroot)
 	export CHAINPREFIX CROSS_COMPILE AR CC CXX STRIP RANLIB SYSROOT
+else ifeq ($(platform), miyoomini)
+        CROSS_COMPILE:=arm-linux-gnueabihf-
+        AR := $(CROSS_COMPILE)ar
+        CC := $(CROSS_COMPILE)g++
+        CXX := $(CROSS_COMPILE)g++
+        STRIP := $(CROSS_COMPILE)strip
+        RANLIB := $(CROSS_COMPILE)ranlib
+        SYSROOT = $(shell $(CC) --print-sysroot)
+        export CHAINPREFIX CROSS_COMPILE AR CC CXX STRIP RANLIB SYSROOT
 else
     CC = g++
 endif 
 
 CXXDEFS = -DGP2X -DRES320X240 -DNOOPENGL -DHAVE_SOUND
+ifeq ($(platform), miyoomini)
+CXXDEFS += -DMIYOOMINI
+endif
+
 CXXFLAGS = $(CXXDEFS) -Wall -O2 -std=gnu++03 `sdl-config --cflags`
 CXXLIBS = -s -lz -lSDL -lSDL_mixer -lSDL_gfx -lSDL_image
 
